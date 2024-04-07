@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Login</h1>
+    <form action="" method="POST">
+        <!-- 只要是POST第一行一定要寫csrf_token -->
+        {% csrf_token %}
+        <label for="id-username">帳號</label>
+        <input type="text" name="username" id="id-username" /><br />
+        <label for="id-password">密碼</label>
+        <input type="text" name="password" id="id-password" /><br />
+        <p>
+            <!-- 二個按鈕以上用input type="submit" -->
+            <input type="submit" name="login" value="登入"></button>
+            <input type="submit" name="register" value="註冊"></button>
+            <button type="reset">清除</button>
+        </p>
+    </form>
+    <p id="message">{{message}}</p>
+</body>
+
+</html>
