@@ -1,15 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人資訊</title>
-</head>
-
-<body>
-    <h1>Profile</h1>
-    {{user}} <a href="{% url 'logout' %}">logout</a>
-</body>
-
-</html>
+{% extends 'base.html' %}
+{% block title %}個人資訊{% endblock %}
+{% block content %}
+<h1>Profile</h1>
+<!-- 是否認證過 -->
+{% if user.is_authenticated %}
+<h2>{{username}}</h2>
+<ul>
+    <li>註冊日期：{{user.date_joined}}</li>
+    <li>信箱：{{user.email}}</li>
+    <li>管理員:
+        {% if user.is_superuser %}
+        是
+        {% else %}
+        否
+        {% endif %}
+    </li>
+    <li>最後登入時間：{{user.date_joined}}</li>
+</ul>
+{% else %}
+<p><a href="{% url 'login' %}">請先登入</a></p>
+{% endif %}
+{% endblock %}

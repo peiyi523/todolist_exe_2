@@ -33,6 +33,7 @@ def user_login(request):
                 if user:
                     login(request, user)
                     message = "登入成功!"
+                    return redirect("profile")
                 else:
                     message = "帳號或密碼錯誤!"
 
