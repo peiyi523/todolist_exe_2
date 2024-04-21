@@ -19,5 +19,7 @@ class Todo(models.Model):
         User, on_delete=models.CASCADE
     )  # 建立ORM關聯且CASCADE是指若主檔刪除了底下的關聯資料也一併被刪除
 
+    # 新增一個文字敘述直接顯示對應的文字內容
+    # (self)指取model本身的項目ex:title/user
     def __str__(self):
         return f"[{self.created}]-{self.title}-({self.user})"
