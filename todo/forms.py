@@ -7,4 +7,4 @@ class TodoForm(ModelForm):
     class Meta:
         model = Todo
         # fields = "__all__"  # 代表全欄位都要
-        fields = ["title", "text", "important"]
+        fields = ["title", "text", "important", "completed"]
