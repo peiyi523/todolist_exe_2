@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}建立事項{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+
+<h1>CreateTodo</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    <!-- 用.as_p把每一項目變成縱向排列且不要太緊密 -->
+    {{form.as_p}}
+    <button type="submit">建立</button>
+</form>
+
+{% endblock %}
