@@ -54,6 +54,7 @@
         <a href="{% url 'logout' %}">登出</a>
         <a class="button-style" href="{% url 'todolist' %}">待辦事項列表</a>
         <a class="button-style" href="{% url 'create_todo' %}">建立事項</a>
+        <a class="button-style" style="background-color:aqua " ; href="{% url 'completed_todo' %}">已完成事項</a>
 
         {% else %}
 
@@ -69,6 +70,15 @@
         {% endblock %}
     </div>
     <p id="message">{{message}}</p>
+
 </body>
+{% block javascript %}
+<script>
+    function confirmDelete() {
+        return confirm("是否確認刪除?");
+    }
+
+</script>
+{% endblock %}
 
 </html>
